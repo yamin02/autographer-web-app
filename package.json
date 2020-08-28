@@ -1,0 +1,19 @@
+{
+  "name": "paintit",
+  "version": "1.0.0",
+  "description": "paint it by p5.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "paint"
+  ],
+  "author": "Yamin",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase-admin": "^9.1.1"
+  }
+}

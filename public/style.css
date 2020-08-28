@@ -1,0 +1,245 @@
+html{
+    box-sizing: border-box;
+}
+*{
+    box-sizing: inherit;}
+*, *:before, *:after {
+    box-sizing: border-box;
+    }
+body{
+    background-image: linear-gradient(to bottom,cyan,rgb(243, 122, 243),pink);
+    box-sizing: border-box;
+}
+.bod{
+    display: flex;
+    flex-direction: column ;
+    align-items: center ;
+    /* height: 120vh ; */
+    width: 100%;
+    flex-wrap: wrap;
+}
+canvas{
+    border : 30px solid rgba(145, 19, 218, 0.472);
+}
+
+.nickname{
+    margin-bottom: 10px;
+}
+input{
+    font-size: 40px;
+    width : 400px;
+    background: inherit;
+    border: none;
+    font-family: 'Baloo Tamma 2';
+    /* font-family: monospace; */
+    margin-bottom: 0px;
+    /* border-bottom: 2px solid rgb(17, 16, 16); */
+}
+label{
+    font-size: 40px;
+    font-weight: 1000;
+    font-family:  'Baloo Tamma 2', cursive;
+}
+.nickname{
+    border: 3px solid black;
+    width : 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input:focus{
+    border-bottom: 2px solid rgb(229, 9, 236);
+    outline: none;
+}
+
+::-webkit-input-placeholder{
+    color: rgba(23, 10, 211, 0.185);
+}
+#operate{
+    display: flex;
+    width: 860px;
+    justify-content: flex-end;
+    /* border : 3px solid black; */
+    margin-top: 4px;
+    align-items: center;
+}
+.tool{
+    margin: 10px;
+    width : 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: relative;
+}
+.tools:focus{
+    outline: none;
+}
+#submit{
+    /* width: 50px; */
+    height: 50px;
+    margin-left: 200px;
+    background: inherit;
+    border: 3px solid black;
+    border-radius: 10%;
+    background: black;
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+}
+#submit1{
+    color: greenyellow;
+    font-size: 35px;
+    
+}
+canvas{
+    color: pink;
+}
+#reset{
+    justify-self: flex-end;
+    border : 0px solid black;
+    border-radius : 10%;  
+    font-size: 20px;
+    font-weight: 550;
+    height: 50px;
+    background-color: #555555 ;
+    color: white;
+}
+#reset:hover{
+    /* border : 5px solid rgb(38, 0, 255); */
+    background : #e7e7e7;
+    color: #080808;
+}
+
+.erase{
+    text-align: center;
+    width: 83px;
+    height: 50px;
+    margin-right: 60px;
+    border: 4px solid black;
+    font-weight: 700;
+    font-size: 20px;
+    border-radius: 30%;
+    color: purple;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.theme1{
+    background-color: #285943;
+    border: 5px solid orange;
+}
+.theme2{
+    background-color: #353866;
+    border: 5px solid wheat;
+}
+.theme3{
+    background-color: #080808;
+    border: 5px solid greenyellow;
+}
+.theme4{
+    background-color: #fa09c6;
+    border: 5px solid black;
+}
+.theme5{
+    background-color: white;
+    border: 5px solid cyan;
+}
+.theme6{
+    background-color: #004C99;
+    border: 5px solid red;
+}
+.theme7{
+    background-color:black;
+    border: 5px solid orange;
+}
+.fa-car{
+    font-size: 60px;
+    color: #fa09c6;
+}
+
+#tweet{
+    width: 860px ;
+    border:5px solid white;
+    border: 20px solid rgba(0, 0, 0, 0.205);
+    box-shadow: 3px 3px 30px cyan;
+}
+
+/* top navbar  */
+.navbar{
+    background: rgba(0, 0, 0, 0.219);
+    width: 900px;
+    margin: 20px;
+    text-align: center;
+    /* border : 3px solid white ; */
+    box-shadow: 5px 5px 30px #fa09c6;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.navbar a{
+    font-size: 24px ;
+    text-decoration: none ;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background: purple ;
+    color : white ;
+    transition: all .5s;
+    height:50px ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+
+}
+.navbar a:focus{
+    background-color: aqua;
+    color: black;
+    transform: rotateX(360deg);
+    transition: all 0.5s;
+    font-weight: bold;
+}
+#data{
+    transform: rotateX(360deg);
+    animation-name: colorchange;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+@keyframes colorchange{
+    0% {background-color : purple;}
+    50% {background-color : rgb(253, 110, 241);}
+    100% {background-color : purple;}
+}
+
+/* botom panel */
+.footer{
+    background: black;
+    width: 860px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex: 1;
+}
+.footer a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex: 1;
+    margin: 10px;
+    font-size: 50px;
+    justify-content: center;
+    align-items: center;
+}
+.footer a:hover{
+    color: greenyellow;
+}
+
+/* intro words */
+.intro{
+    width: 900px;
+    margin: 30px;
+    font-size: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.157);
+    padding: 20px;
+    font-family: monospace;
+}

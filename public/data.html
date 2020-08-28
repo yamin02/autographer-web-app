@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Canvas for Paint</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        #image{
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            justify-items: center;
+            width: 900px;
+            flex-basis: 1;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            position: relative;
+        }
+        img{
+            width: 450px;
+            height: 450px;
+            border: 15px solid rgba(181, 3, 251, 0.575);
+            border-radius: 0px 20px;
+        }
+        h1{
+            padding-left: 20px;
+            width: 330px;
+            background: rgba(181, 3, 251, 0.575);
+            margin-bottom: 0;
+            border-radius: 30px 20px 0px 0px;
+            color: white;;
+            font-family: 'Baloo Tamma 2', cursive;
+        }
+        #imagediv{
+            position: relative;
+        }
+        .fa-heart{
+            position: absolute;
+            bottom: 28px;
+            font-weight: bold;
+            left: 28px; 
+            font-size: 40px;
+            /* color: rgb(246, 41, 22); */
+            /* color: cyan; */
+        }
+        
+        #imagediv span{
+            font-family: 'Baloo Tamma 2', cursive;
+            margin-left: 7px;
+        }
+       
+    </style>
+</head>
+<body>
+<div class="bod">
+<nav class="navbar">
+    <a href="index.html" id="home">Home</a>
+    <a href="#" id='data'>Other Autographs</a>
+    <a href="contact.html" id='me'>About Me</a>
+</nav>
+<div class="intro">Hello people its <b>YAMIN</b> hope you guys are funHello people its yamin hope you guys are funHello people its yamin <b>Remember love with your heart and use your brain for everything else </b>....okay not really for everything actually</div>
+
+<!-- <canvas id = 'draw'> -->
+    <div id = 'image'></div>
+<!-- </canvas> -->
+
+<footer class="footer">
+    <a href="#"><i class='fa fa-github'></i></a>
+    <a href="#"><i class='fa fa-facebook-official'></i></a>
+    <a href="#"><i class='fa fa-envelope'></i></a>
+    <a href="#"><i class='fa fa-twitter'></i></a>
+    <a href="#"><i class='fa fa-instagram'></i></a>
+    <a href="#"><i class='fa fa-youtube'></i></a>
+</footer>
+</div>
+<script>
+const red0 = "rgb(246, 41, 22)";
+const cyan0 = "rgb(22,246,246)";
+const div = document.getElementById('image');
+async function getimage(id) {
+    const response = await fetch(`/bringdb/${id}`);
+    const data = await response.json();
+    
+    adddesign(data.nickname, data.image,data.likecount,data.idnum);
+}
+
+for(var i = 12 ; i >= 0 ; i--){
+    getimage(i);
+}
+
+function adddesign(nickname , image , likecount,idnum){
+    const icon = document.createElement('i');
+    const divcre = document.createElement('div');
+    divcre.id = 'imagediv';
+    const para = document.createElement('h1');
+    const imag0 = document.createElement('img');
+    const span = document.createElement('span');
+    span.textContent = likecount ;
+    icon.className = 'fa fa-heart' ;
+    icon.style.color = cyan0 ;
+    icon.onclick = work ;
+    icon.id = idnum ;
+    para.textContent = '@'+ nickname ;   
+    imag0.src = image ;
+    icon.appendChild(span);
+    divcre.appendChild(para);
+    divcre.appendChild(imag0);
+    divcre.appendChild(icon);
+    div.appendChild(divcre);
+}
+
+const arr = [];
+function work() {
+    var spn = this.querySelector('span').textContent;
+    var span = parseFloat(spn) ;
+    console.log(this.id);
+    if(this.style.color == "rgb(22, 246, 246)" )
+    {
+    this.style.color = "rgb(246, 41, 22)" ;
+    span = span + 1 ;
+    arr.push(this.id);
+    this.querySelector('span').textContent =  span;
+    }
+    else{
+    span = span-1 ;
+    this.style.color = cyan0 ;
+    const index = arr.indexOf(this.id);
+    if (index > -1) {
+    arr.splice(index, 1);
+    }
+    //console.log(this.style.color); 
+    this.querySelector('span').textContent =  span;
+    //this.textContent = ' ' + span;
+    }
+}
+
+window.addEventListener('beforeunload',(event)=>{
+    //const uniq = [...new Set(lovear)];
+    //console.log(uniq);
+      // Cancel the event as stated by the standard.
+    //event.preventDefault();
+    //var likeidnum = JSON.stringify(Object.assign({}, arr))
+    //console.log(likeidnum);
+    if(arr.length !== 0){
+    var num00 = arr.toString() ;
+    console.log(num00);
+    sendthis(num00);
+}
+    console.log('okay leave');
+
+})
+
+async function sendthis(send)
+{
+  const options = {
+  method: 'POST',
+  //headers: {'Content-Type': 'application/json'},
+  headers: {'Content-Type': 'text/plain'},
+  body: send,
+}
+
+const response = await fetch('/sendlove', options)
+}
+
+
+
+
+</script>
+
+</body>
+</html>
