@@ -1,29 +1,94 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <title>Canvas for Paint</title>
+    <title>About Me</title>
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    #mechan
+    {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+            -ms-flex-direction: row-reverse;
+                flex-direction: row-reverse;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background: rgba(230, 29, 29, 0.322);
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10%;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    #mechan2{
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        background: rgba(230, 29, 29, 0.322);
+        padding: 20px;
+        margin-bottom: 30px;
+        border-radius: 10%;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    }
+    #lekha
+    {
+        width: 330px; 
+        padding: 30px ;
+        font-family: 'Baloo Tamma 2';
+        font-size: 24px;
+    }
+    img{
+        border-radius: 10%;
+    }
+    
+</style>
+
 </head>
+
 <body>
 <div class="bod">
 <nav class="navbar">
     <a href="index.html" id="home">Home</a>
-    <a href="data.html" id='data'>Other Autographs</a>
+    <a href="data.html" id='data'>Other Autographes</a>
     <a href="#" id='me'>About Me</a>
 </nav>
-<div class="intro">Hello people its <b>YAMIN</b> hope you guys are funHello people its yamin hope you guys are funHello people its yamin <b>Remember love with your heart and use your brain for everything else </b>....okay not really for everything actually</div>
-
-<canvas id = 'draw'></canvas>
+<div class="intro">This web application was solely designed and deployed by Yamin. The web app uses Node js in the server side and minimalistic styling in the client side. No framework and its simply vanilla js. Cloud firestore used as database. Thanks to BUET for giving me an edu email which gave me a custom DNS , easy access to twitter dev account and priviledged access to azure.The app is currently deployed in azure ws, heroku and glitch. And as always thanks for visiting the site.</div>
+<div id='mechan'>
+<img src="yamin.jpeg" style="width:300px">
+<p id="lekha">Hello !! I am an undergrad at Mechanical Engineering in BUET. Hometown in Chittagong. I love cooking and watching fc barcelona play football.A big fan of apple juice.Whatever may be the year ending budget of bd,  I just pray so the govt don't increase prices of apple juice. 
+</div>
+<div id='mechan2'>
+ <img src="http://i.stack.imgur.com/SBv4T.gif" style="width:300px">
+<p id="lekha">Hey thanks for Visiting the website!!  Thanks alot. You guys are really the best. Support Yamin in twiter , github and youtube. Remember fellow.. <b>Human created problems that's why God created YOU to solve them</b> And please pray so that Messi don't leave barca. I know you are a pious man. Your prayers will surely be granted.</p>
+</div>
 
 <footer class="footer">
-    <a href="#"><i class='fa fa-github'></i></a>
-    <a href="#"><i class='fa fa-facebook-official'></i></a>
-    <a href="#"><i class='fa fa-envelope'></i></a>
-    <a href="#"><i class='fa fa-twitter'></i></a>
-    <a href="#"><i class='fa fa-instagram'></i></a>
-    <a href="#"><i class='fa fa-youtube'></i></a>
+    <a href="https://github.com/yamin02"><i class='fa fa-github'></i></a>
+    <a href="https://www.facebook.com/joss.yamin02"><i class='fa fa-facebook-official'></i></a>
+    <a href="https://mail.google.com/mail"><i class='fa fa-envelope'></i></a>
+    <a href="https://twitter.com/HoqueYaminul"><i class='fa fa-twitter'></i></a>
+    <a href="https://www.instagram.com/yaminul_hoque/"><i class='fa fa-instagram'></i></a>
+    <a href="https://www.youtube.com/channel/UCAEjZ5ppKpm-6-fvjcrNtyg/featured"><i class='fa fa-youtube'><i></a>
+
 </footer>
 </div>
 </body>

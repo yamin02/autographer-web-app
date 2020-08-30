@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html>
  <head>
-    <title>Canvas for Paint</title>
+    <title>Other Autographes</title>
     <link rel="stylesheet" href="style.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    
     <style>
         #image{
+            display: -webkit-box;
+            display: -ms-flexbox;
             display: flex;
-            flex-direction: row;
-            align-content: center;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+                -ms-flex-direction: row;
+                    flex-direction: row;
+            -ms-flex-line-pack: center;
+                align-content: center;
             justify-items: center;
             width: 900px;
-            flex-basis: 1;
-            flex-wrap: wrap;
+            -ms-flex-preferred-size: 1;
+                flex-basis: 1;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
             margin-top: 10px;
             position: relative;
         }
@@ -42,55 +53,89 @@
             font-weight: bold;
             left: 28px; 
             font-size: 40px;
-            /* color: rgb(246, 41, 22); */
-            /* color: cyan; */
         }
         
         #imagediv span{
             font-family: 'Baloo Tamma 2', cursive;
             margin-left: 7px;
         }
-       
+        #load{
+        height: 200px;
+        margin-bottom: 100px;
+        font-size: 100px;
+        color: rgb(157, 255, 9);
+        margin:  10px auto ; 
+        -webkit-animation:spin 4s linear infinite; 
+                animation:spin 4s linear infinite;  
+    }
+    @-webkit-keyframes spin { 
+        100% {-webkit-transform:rotate(360deg);transform:rotate(360deg); } 
+    }
+    @keyframes spin { 
+        100% {-webkit-transform:rotate(360deg);transform:rotate(360deg); } 
+    }
+
     </style>
 </head>
 <body>
 <div class="bod">
 <nav class="navbar">
     <a href="index.html" id="home">Home</a>
-    <a href="#" id='data'>Other Autographs</a>
+    <a href="#" id='data'>Other Autographes</a>
     <a href="contact.html" id='me'>About Me</a>
 </nav>
-<div class="intro">Hello people its <b>YAMIN</b> hope you guys are funHello people its yamin hope you guys are funHello people its yamin <b>Remember love with your heart and use your brain for everything else </b>....okay not really for everything actually</div>
+<div class="intro">Hello people thanks for clicking here!!  Watch what my friends have autographed.Try showing <b>LOVE</b> to them for what they have drawn by clicking the <b>LOVE icon at the bottom of every canvas</b>. The most loved autograph gets tweeted in my twiter account. <b>Remember love with your heart but use your brain for everything else </b>...umm not really for everything actually.</div>
 
 <!-- <canvas id = 'draw'> -->
-    <div id = 'image'></div>
+    <div id = 'image'>
+        <i class="fa fa-spinner" aria-hidden="true" id = 'load'></i>
+    </div>
 <!-- </canvas> -->
 
 <footer class="footer">
-    <a href="#"><i class='fa fa-github'></i></a>
-    <a href="#"><i class='fa fa-facebook-official'></i></a>
-    <a href="#"><i class='fa fa-envelope'></i></a>
-    <a href="#"><i class='fa fa-twitter'></i></a>
-    <a href="#"><i class='fa fa-instagram'></i></a>
-    <a href="#"><i class='fa fa-youtube'></i></a>
+    <a href="https://github.com/yamin02"><i class='fa fa-github'></i></a>
+    <a href="https://www.facebook.com/joss.yamin02"><i class='fa fa-facebook-official'></i></a>
+    <a href="https://mail.google.com/mail"><i class='fa fa-envelope'></i></a>
+    <a href="https://twitter.com/HoqueYaminul"><i class='fa fa-twitter'></i></a>
+    <a href="https://www.instagram.com/yaminul_hoque/"><i class='fa fa-instagram'></i></a>
+    <a href="https://www.youtube.com/channel/UCAEjZ5ppKpm-6-fvjcrNtyg/featured"><i class='fa fa-youtube'></i></a>
+
 </footer>
 </div>
+</div>
+
+
 <script>
+async function getkeys(){
+const req = await fetch('/apikeys');
+const response = await req.json();
+firebase.initializeApp(response);
+if(response){
+    getimage();
+}
+}
+
+getkeys();
 const red0 = "rgb(246, 41, 22)";
 const cyan0 = "rgb(22,246,246)";
 const div = document.getElementById('image');
-async function getimage(id) {
-    const response = await fetch(`/bringdb/${id}`);
-    const data = await response.json();
-    
-    adddesign(data.nickname, data.image,data.likecount,data.idnum);
-}
 
-for(var i = 12 ; i >= 0 ; i--){
-    getimage(i);
+var count = 0;
+function getimage(){
+var db = firebase.firestore();
+var docRef = db.collection("autographer01")
+.orderBy("idnum", "desc")
+.limit(20)
+.onSnapshot(function(snap) {
+    snap.forEach(doc=>{
+        var data = doc.data();
+        adddesign(data.nickname, data.image,data.likecount,data.idnum);
+    })
+});
 }
-
-function adddesign(nickname , image , likecount,idnum){
+  
+function adddesign(nickname , image , likecount, idnum)
+{
     const icon = document.createElement('i');
     const divcre = document.createElement('div');
     divcre.id = 'imagediv';
@@ -111,8 +156,8 @@ function adddesign(nickname , image , likecount,idnum){
     div.appendChild(divcre);
 }
 
-const arr = [];
-function work() {
+function work() 
+{
     var spn = this.querySelector('span').textContent;
     var span = parseFloat(spn) ;
     console.log(this.id);
@@ -120,51 +165,36 @@ function work() {
     {
     this.style.color = "rgb(246, 41, 22)" ;
     span = span + 1 ;
-    arr.push(this.id);
+    incre(this.id);
     this.querySelector('span').textContent =  span;
     }
     else{
     span = span-1 ;
     this.style.color = cyan0 ;
-    const index = arr.indexOf(this.id);
-    if (index > -1) {
-    arr.splice(index, 1);
-    }
-    //console.log(this.style.color); 
+    decre(this.id);
     this.querySelector('span').textContent =  span;
-    //this.textContent = ' ' + span;
     }
 }
 
-window.addEventListener('beforeunload',(event)=>{
-    //const uniq = [...new Set(lovear)];
-    //console.log(uniq);
-      // Cancel the event as stated by the standard.
-    //event.preventDefault();
-    //var likeidnum = JSON.stringify(Object.assign({}, arr))
-    //console.log(likeidnum);
-    if(arr.length !== 0){
-    var num00 = arr.toString() ;
-    console.log(num00);
-    sendthis(num00);
-}
-    console.log('okay leave');
 
-})
 
-async function sendthis(send)
-{
-  const options = {
-  method: 'POST',
-  //headers: {'Content-Type': 'application/json'},
-  headers: {'Content-Type': 'text/plain'},
-  body: send,
-}
-
-const response = await fetch('/sendlove', options)
+async function incre(value){
+const response = await fetch(`/sendlove/${value}`)
 }
 
 
+async function decre(value){
+const response = await fetch(`/takelove/${value}`)
+}
+
+document.onreadystatechange = function () {
+  var state = document.readyState
+ if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('load').style.display="none";
+      },4000);
+  }
+}
 
 
 </script>

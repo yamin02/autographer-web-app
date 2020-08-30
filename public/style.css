@@ -1,22 +1,36 @@
 html{
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 *{
-    box-sizing: inherit;}
+    -webkit-box-sizing: inherit;
+            box-sizing: inherit;}
 *, *:before, *:after {
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
     }
 body{
+    background-image: -webkit-gradient(linear,left top, left bottom,from(cyan),color-stop(rgb(243, 122, 243)),to(pink));
+    background-image: -o-linear-gradient(top,cyan,rgb(243, 122, 243),pink);
     background-image: linear-gradient(to bottom,cyan,rgb(243, 122, 243),pink);
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 .bod{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column ;
-    align-items: center ;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column ;
+            flex-direction: column ;
+    -webkit-box-align: center ;
+        -ms-flex-align: center ;
+            align-items: center ;
     /* height: 120vh ; */
     width: 100%;
-    flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 canvas{
     border : 30px solid rgba(145, 19, 218, 0.472);
@@ -43,9 +57,15 @@ label{
 .nickname{
     border: 3px solid black;
     width : 800px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 input:focus{
     border-bottom: 2px solid rgb(229, 9, 236);
@@ -56,12 +76,18 @@ input:focus{
     color: rgba(23, 10, 211, 0.185);
 }
 #operate{
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 860px;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     /* border : 3px solid black; */
     margin-top: 4px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .tool{
     margin: 10px;
@@ -83,8 +109,12 @@ input:focus{
     background: black;
     color: white;
     font-size: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-weight: bold;
 }
 #submit1{
@@ -111,11 +141,11 @@ canvas{
     color: #080808;
 }
 
-.erase{
+#erase{
     text-align: center;
     width: 83px;
     height: 50px;
-    margin-right: 60px;
+    margin-right: 35px; 
     border: 4px solid black;
     font-weight: 700;
     font-size: 20px;
@@ -123,7 +153,12 @@ canvas{
     color: purple;
     font-family: Arial, Helvetica, sans-serif;
 }
-
+#erase:focus{
+    outline: none;
+}
+#themehed{
+    font-family: monospace;
+}
 .theme1{
     background-color: #285943;
     border: 5px solid orange;
@@ -161,7 +196,8 @@ canvas{
     width: 860px ;
     border:5px solid white;
     border: 20px solid rgba(0, 0, 0, 0.205);
-    box-shadow: 3px 3px 30px cyan;
+    -webkit-box-shadow: 3px 3px 30px cyan;
+            box-shadow: 3px 3px 30px cyan;
 }
 
 /* top navbar  */
@@ -171,11 +207,18 @@ canvas{
     margin: 20px;
     text-align: center;
     /* border : 3px solid white ; */
-    box-shadow: 5px 5px 30px #fa09c6;
+    -webkit-box-shadow: 5px 5px 30px #fa09c6;
+            box-shadow: 5px 5px 30px #fa09c6;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 }
 .navbar a{
     font-size: 24px ;
@@ -183,26 +226,48 @@ canvas{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background: purple ;
     color : white ;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
     transition: all .5s;
     height:50px ;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 
 }
 .navbar a:focus{
     background-color: aqua;
     color: black;
-    transform: rotateX(360deg);
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    -webkit-transition: all 0.5s;
+    -o-transition: all 0.5s;
     transition: all 0.5s;
     font-weight: bold;
 }
 #data{
-    transform: rotateX(360deg);
-    animation-name: colorchange;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
+    -webkit-transform: rotateX(360deg);
+            transform: rotateX(360deg);
+    -webkit-animation-name: colorchange;
+            animation-name: colorchange;
+    -webkit-animation-duration: 6s;
+            animation-duration: 6s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+@-webkit-keyframes colorchange{
+    0% {background-color : purple;}
+    50% {background-color : rgb(253, 110, 241);}
+    100% {background-color : purple;}
 }
 @keyframes colorchange{
     0% {background-color : purple;}
@@ -214,20 +279,34 @@ canvas{
 .footer{
     background: black;
     width: 860px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     justify-items: center;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 }
 .footer a{
     text-decoration: none;
     color: white;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
     margin: 10px;
     font-size: 50px;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 .footer a:hover{
     color: greenyellow;

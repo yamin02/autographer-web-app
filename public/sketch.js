@@ -5,13 +5,13 @@ const theme4 = document.querySelector('.theme4');
 const theme5 = document.querySelector('.theme5');
 const theme6 = document.querySelector('.theme6');
 const theme7 = document.querySelector('.theme7');
-const eraser = document.querySelector('.erase');
+const eraser = document.querySelector('#erase');
 
 const reset = document.querySelector('#reset');
 const canvas = document.getElementById('draw');
 const container = document.getElementsByClassName('container');
 const submit = document.getElementById('submit');
-
+const input = document.getElementById('nickname');
 
 let currentcolor = 'black';
 const ctx = canvas.getContext('2d');
@@ -37,6 +37,7 @@ let mouseON ;
 let eraserON = false;
 
 function draw(e){
+input.blur();
 if(!isDrawing) return;
 if(eraserON){
   ctx.fillStyle = currentcolor;
@@ -276,10 +277,8 @@ if(!nickname){
   alert('Please tell "YOUR NICKNAME" in the input bar !!! \n (example :  Selfie Rakib, Jarjes , Mohatel ) ')
   return ;
 }
-window.confirm('Do you want to send what you wrote in the canvas ? ')
+window.confirm('Do you want to send what you drew in the canvas ? ');
 var image = canvas.toDataURL('image/jpeg');
-var image0 = b64toBlob(image) ;
-console.log(image0);
 var likecount = 0 ; 
 var idnum = 0 ;
 const data = {nickname , image, likecount ,idnum};
@@ -287,13 +286,3 @@ console.log(data);
 sendthis(data);
 });
 
-function b64toBlob(dataURI) {
-  var byteString = atob(dataURI.split(',')[1]);
-  var ab = new ArrayBuffer(byteString.length);
-  var ia = new Uint8Array(ab);
-  for (var i = 0; i < byteString.length; i++)
-   {
-      ia[i] = byteString.charCodeAt(i);}
-
-  return new Blob([ab], { type: 'image/jpeg' });
-}

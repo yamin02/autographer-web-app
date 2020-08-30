@@ -1,0 +1,5 @@
+{
+    "appService.showBuildDuringDeployPrompt": false,
+    "appService.defaultWebAppToDeploy": "/subscriptions/d7542b39-7f0c-4193-9d8c-b1a521f403da/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/autographer",
+    "appService.deploySubpath": "."
+}
